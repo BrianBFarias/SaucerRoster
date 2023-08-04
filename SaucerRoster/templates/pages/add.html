@@ -1,0 +1,78 @@
+{% extends "pages/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div class="add">
+
+    <form action="{% url 'add' %}" method="post"  enctype="multipart/form-data">
+        {% csrf_token %}
+        <div id="search" class="form-group">
+            <input class="form-control" autofocus type="text" name="brand" placeholder="Brand">
+        </div>
+        <div id="search" class="form-group">
+            <input class="form-control" type="text" name="product" placeholder="Sauce Type (ie RedHot, Tabasco... etc)">
+        </div>
+        <div id="search" class="form-group">
+            <textarea rows="5" class="form-control" name="description" placeholder="Description"></textarea>
+        </div>
+        <div class="file_upoad">
+            <img id="image_preview" src="" alt="Image preview">
+            <input class="file" type="file" name="image_field" id="upload" hidden>
+            <label id="upload_button" class="notUploaded" for="upload">Upload Sauce Image</label>
+        </div>
+        <div class="sr">
+            <div>
+                <h3>Spice</h3>
+            </div>
+            <div class="radio-toolbar">
+                <input type="radio" id="radio1" name="radios" value="1" checked>
+                <label for="radio1">This has Spice?!?!</label>
+            
+                <input type="radio" id="radio2" name="radios" value="2">
+                <label for="radio2">Barely feel the Spice</label>
+            
+                <input type="radio" id="radio3" name="radios" value="3">
+                <label for="radio3">Just enough to enjoy</label> 
+
+                <input type="radio" id="radio4" name="radios" value="4">
+                <label for="radio4">My eyes are watery</label>
+
+                <input type="radio" id="radio5" name="radios" value="5">
+                <label for="radio5">F*** This Sh**</label>
+            </div>
+        </div>
+        
+        <div class="fr">
+            <div>
+                <h3>Flavor</h3>
+            </div>
+            <div class="radio-toolbar2">
+                <input type="radio" id="radio1f" name="radiof" value="1"checked>
+                <label class="flabel" for="radio1f">I regret it</label>
+            
+                <input type="radio" id="radio2f" name="radiof" value="2">
+                <label class="flabel" for="radio2f">It's edible</label>
+            
+                <input type="radio" id="radio3f" name="radiof" value="3">
+                <label class="flabel" for="radio3f">It's Aight</label> 
+
+                <input type="radio" id="radio4f" name="radiof" value="4">
+                <label class="flabel" for="radio4f">It's pretty good</label>
+
+                <input type="radio" id="radio5f" name="radiof" value="5">
+                <label class="flabel" for="radio5f">God tier flavor</label>
+            </div>
+        </div>
+        <input id="button" class="btn btn4" id="button" type="submit" value="Submit">
+    </form>
+
+</div>
+
+
+{% endblock %}
+
+
+{% block script %}
+<link href="{% static 'pages/add.css' %}" rel="stylesheet">
+<script src="{% static 'pages/add.js' %}"></script>
+{% endblock %}

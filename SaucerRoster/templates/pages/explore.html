@@ -1,0 +1,23 @@
+{% extends "pages/layout.html" %}
+{% load static %}
+
+{% block body %}
+<body>
+    <div class="box">
+        <div id="posts">
+
+        </div>
+    </div>
+
+    <div id="page-controls">
+        <button class="next-btn" id="page-btn" onclick="next_post()">next</button>
+        <button class="previous-btn" id="page-btn" onclick="back_post()">previous</button>
+    </div>
+
+</body>
+{% endblock %}
+
+{% block script %}
+<link href="{% static 'pages/explore.css' %}" rel="stylesheet">
+<script src="{% static 'pages/explore.js' %}"></script>
+{% endblock %}

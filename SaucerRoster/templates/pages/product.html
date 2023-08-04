@@ -1,0 +1,82 @@
+{% extends "pages/layout.html" %}
+{% load static %}
+
+{% block body %}
+<div id="info-post" class='{{product.id}}'>
+    <section id="post-data">
+        <div>
+            <img src="{{ product.image.url }}" alt="">
+        </div>
+    
+        <div class="info">
+            <div class="headup">
+                <h3>{{ product.product}}</h3>
+                <h5>{{ product.brand}}</h5>
+            </div>
+
+            <div class="description">
+                <p>{{product.description}}</p>
+            </div>
+
+            <div class="reviews">
+                <h7>Rated by {{product.rating.count}} </h7>
+            </div>
+        </div>
+
+        <div class="ratings">
+            <div class="spice">
+                <p>It's <strong class="spice"></strong> spicecness</p>
+            </div>
+            <div class="flavor">
+                <p>Flavor is ranked at <strong class="flavor"></strong> </p>
+            </div>
+        </div>
+    </section>
+
+    {% if user.is_authenticated %}
+    <section id="feedback">
+        <div class="title">
+            <h4>Rate</h4>    
+  
+        </div>
+        <div class="review">
+            <div id="spice_review">
+                <i id="1" class="fa-regular fa-pepper-hot" onclick="spice_rating(1)"></i>
+                <i id="2" class="fa-regular fa-pepper-hot" onclick="spice_rating(2)"></i>
+                <i id="3" class="fa-regular fa-pepper-hot" onclick="spice_rating(3)"></i>
+                <i id="4" class="fa-regular fa-pepper-hot" onclick="spice_rating(4)"></i>
+                <i id="5" class="fa-regular fa-pepper-hot" onclick="spice_rating(5)"></i>
+            </div>
+
+            <div id="flavor_review">
+                <span id="1" class="fa-solid fa-bowl-food" onclick="flavor_rating(1)"></span>
+                <span id="2" class="fa-solid fa-bowl-food" onclick="flavor_rating(2)"></span>
+                <span id="3" class="fa-solid fa-bowl-food" onclick="flavor_rating(3)"></span>
+                <span id="4" class="fa-solid fa-bowl-food" onclick="flavor_rating(4)"></span>
+                <span id="5" class="fa-solid fa-bowl-food" onclick="flavor_rating(5)"></span>
+            </div>
+        </div>
+        <div>
+            <button onclick="submit()">submit</button>
+        </div>
+    </section>
+
+    <section id="post_feedback">
+        <p>You already reviewed this item!</p>
+    </section>
+
+    {% else %}
+    <section id="feedback">
+        <p>Login to rate items</p>
+    </section>
+    
+    {% endif %}
+    
+</div>
+
+{% endblock %}
+
+{% block script %}
+<link href="{% static 'pages/product.css' %}" rel="stylesheet">
+<script src="{% static 'pages/product.js' %}"></script>
+{% endblock %}

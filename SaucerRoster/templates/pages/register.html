@@ -1,0 +1,34 @@
+{% extends "pages/layout.html" %}
+{% load static %}
+
+{% block script %}
+    <link href="{% static 'pages/register.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+<div class="registering">
+    <h2>Register</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <div id="search" class="form-group">
+            <input class="form-control" autofocus type="text" name="username" placeholder="Username">
+        </div>
+        <div id="search" class="form-group">
+            <input class="form-control" type="email" name="email" placeholder="Email Address">
+        </div>
+        <div id="search" class="form-group">
+            <input class="form-control" type="password" name="password" placeholder="Password">
+        </div>
+        <div id="search" class="form-group">
+            <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
+        </div>
+        <input id="button" class="btn btn-primary" id="button" type="submit" value="Register">
+    </form>
+    <div class="sub">Already have an account? <a href="{% url 'login' %}">Log In here.</a></div>
+</div>
+{% endblock %}

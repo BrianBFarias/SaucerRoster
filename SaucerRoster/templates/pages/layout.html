@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Saucer Roster{% endblock %}</title>
+        <script src="https://kit.fontawesome.com/821c7259c0.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="{% static 'pages/layout.css' %}" rel="stylesheet">
+        {% block script %}
+        {% endblock %}
+    </head>
+    <body class="backend">
+        <ul class="nav">
+            <li class="title">
+                <a href="{% url 'index' %}">
+                    <img class="logo" src="{% static 'images/logo.png' %}" alt="Logo.png">
+                </a>
+            </li>
+            
+            <li class="nav-item" id="light-nav">
+                <a class="nav-link" href="{% url 'index' %}" title="Home">Home</a>
+            </li>
+            <li class="nav-item" id="light-nav">
+                <a class="nav-link" href="{% url 'explore' %}" title="Explore">Explore</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="add-item" id="light-nav">
+                <a id="add" class="nav-link" href="{% url 'add' %}" title="Add Hot Sauce">Add Hot Sauce</a>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+                <form class="search" action = "{% url 'search' %}" method = "POST">
+                    {% csrf_token %}
+                    <div class="searchBar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input class="searchInput" type="text" name="search" placeholder="">
+                    </div>
+                </form>
+            </li>
+            {% if user.is_authenticated %}
+            <div class="login-status">
+                <li class="logout">
+                    <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                </li>
+            </div>
+
+            {% else %}
+                <div class="login-status">
+                    <li class="nav-item" id="dark-nav">
+                        <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                    </li>
+                    <li class="nav-item" id="dark-nav">
+                        <a class="nav-link" href="{% url 'register' %}">Register</a>
+                    </li>
+                </div>
+            {% endif %}
+        </ul>
+
+        <div class="body">
+        {% block body %}
+        {% endblock %}
+        </div>
+    </body>
+        <!-- This is the footer for the Saucer Roster website. -->
+        <footer class="footer">
+            <!-- This container holds all of the footer elements. -->
+            <div class="container">
+            <!-- This span displays the copyright notice. -->
+            <!-- <p>Copyright &copy; 2023 Saucer Roster</p> -->
+            <p>Saucer Roster</p>
+
+            <!-- This list of links contains the privacy policy and terms of service. -->
+            <ul class="list-inline">
+                <li class="list-inline-item"><a>Privacy Policy</a></li>
+                <li class="list-inline-item"><a></a>Terms of Service</a></li>
+            </ul>
+            </div>
+        </footer>
+</html>
