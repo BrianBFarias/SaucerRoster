@@ -1,5 +1,4 @@
 # Saucer Roster
-
 ## Distinctiveness and Complexity
 
 This project satisfies the requirements given because it uses all the applied skills I've learned on every project up till now.
