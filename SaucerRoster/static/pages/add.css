@@ -6,6 +6,34 @@
   padding-top: 20px;
 }
 
+.input-box{
+  background-color: white;
+  padding-block: 30px;
+  border-radius: 10px;
+}
+
+.add .title{
+  text-align: left;
+  margin-bottom: 0px;
+  padding: 5px;
+  border-radius: 8px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius:0px ;
+  margin-left: 20px;
+  height: fit-content;
+  color: white;
+  background-color: #913333;
+  width: fit-content;
+}
+
+hr{
+  width: 100%;
+  border-radius: 10px;
+  justify-content: center;
+  margin: auto;
+  border: 1px solid #913333;
+}
+
 .form-control{
   width: 700px;
 }
@@ -42,6 +70,11 @@ h2{
 
 .fr, .sr{
   margin-top: 30px;
+}
+.sr, .fr{
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .file_upoad{
@@ -186,3 +219,4 @@ border: 2px solid transparent;
       background-color: rgba(211, 197, 168, 0.554);
       border-color: rgb(153, 116, 44);
   }
+

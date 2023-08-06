@@ -35,8 +35,8 @@ function load(){
         spice_rate = Math.round((data.spice_rank/5) *100);
         flavor_rate = Math.round((data.flavor_rank/5) *100);
 
-        document.getElementById("info-post").querySelector(".spice").innerHTML = `<p>It has <strong id='spicePercent'>${spice_rate}%</strong> spicecness</p>`;
-        document.getElementById("info-post").querySelector(".flavor").innerHTML = `<p>Flavor is ranked at <strong id='flavorPercent'>${flavor_rate}%</strong></p>`;
+        document.getElementById("info-post").querySelector(".spice").innerHTML = `<p><strong id='spicePercent'>${spice_rate}%</strong> Spice</p>`;
+        document.getElementById("info-post").querySelector(".flavor").innerHTML = `<p><strong id='flavorPercent'>${flavor_rate}%</strong> Yummy!</p>`;
 
         const spice = document.getElementById("spicePercent");
         const flavor = document.getElementById("flavorPercent");

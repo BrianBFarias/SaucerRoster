@@ -125,23 +125,25 @@ def search(request):
 @login_required
 def add(request):
     if request.method == 'POST':
-        image = request.FILES['image_field']
-        brand = request.POST['brand']
-        product = request.POST['product']
-        description = request.POST['description']
-        spice_rating = request.POST['radios']
-        flavor_rating = request.POST['radiof']
+        try:
+            image = request.FILES['image_field']
+            brand = request.POST['brand']
+            product = request.POST['product']
+            description = request.POST['description']
+            spice_rating = request.POST['radios']
+            flavor_rating = request.POST['radiof']
+        except:
+            return render(request, "pages/add.html", {
+                'error':True
+            })
 
-        if brand or product or description:
-            rate = rating.objects.create(poster = request.user, spice=spice_rating, flavor=flavor_rating)
-            rate.save()
+        rate = rating.objects.create(poster = request.user, spice=spice_rating, flavor=flavor_rating)
+        rate.save()
 
-            post = Post.objects.create(brand = brand, product=product, description = description, image=image )
-            post.save()
-            post.rating.add(rate)
-            return HttpResponseRedirect(reverse("index"))
-        else:
-            return render(request, "pages/add.html")
+        post = Post.objects.create(brand = brand, product=product, description = description, image=image )
+        post.save()
+        post.rating.add(rate)
+        return HttpResponseRedirect(reverse("index"))
     else:
         return render(request, "pages/add.html")
     

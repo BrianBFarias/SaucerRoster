@@ -4,21 +4,27 @@
 {% block body %}
 <div class="add">
 
+    <p class="title">Add Sauce</p>
+
+    <hr>
+
     <form action="{% url 'add' %}" method="post"  enctype="multipart/form-data">
         {% csrf_token %}
-        <div id="search" class="form-group">
-            <input class="form-control" autofocus type="text" name="brand" placeholder="Brand">
-        </div>
-        <div id="search" class="form-group">
-            <input class="form-control" type="text" name="product" placeholder="Sauce Type (ie RedHot, Tabasco... etc)">
-        </div>
-        <div id="search" class="form-group">
-            <textarea rows="5" class="form-control" name="description" placeholder="Description"></textarea>
-        </div>
-        <div class="file_upoad">
-            <img id="image_preview" src="" alt="Image preview">
-            <input class="file" type="file" name="image_field" id="upload" hidden>
-            <label id="upload_button" class="notUploaded" for="upload">Upload Sauce Image</label>
+        <div class="input-box">
+            <div id="search" class="form-group">
+                <input class="form-control" autofocus type="text" name="brand" placeholder="Brand">
+            </div>
+            <div id="search" class="form-group">
+                <input class="form-control" type="text" name="product" placeholder="Sauce Type (ie RedHot, Tabasco... etc)">
+            </div>
+            <div id="search" class="form-group">
+                <textarea rows="5" class="form-control" name="description" placeholder="Description"></textarea>
+            </div>
+            <div class="file_upoad">
+                <img id="image_preview" src="" alt="Image preview">
+                <input class="file" type="file" name="image_field" id="upload" hidden>
+                <label id="upload_button" class="notUploaded" for="upload">Upload Sauce Image</label>
+            </div>
         </div>
         <div class="sr">
             <div>

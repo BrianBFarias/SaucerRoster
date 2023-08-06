@@ -26,8 +26,8 @@
                 <a class="nav-link" href="{% url 'explore' %}" title="Explore">Explore</a>
             </li>
             {% if user.is_authenticated %}
-            <li class="add-item" id="light-nav">
-                <a id="add" class="nav-link" href="{% url 'add' %}" title="Add Hot Sauce">Add Hot Sauce</a>
+            <li class="add-item" id="light-add-nav">
+                <a id="add" class="nav-link" href="{% url 'add' %}"><i class="fas fa-plus"></i></a>
             </li>
             {% endif %}
             <li class="nav-item">
@@ -35,7 +35,7 @@
                     {% csrf_token %}
                     <div class="searchBar">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input class="searchInput" type="text" name="search" placeholder="">
+                        <input class="searchInput" type="text" name="search" placeholder="Search Saucer Roster">
                     </div>
                 </form>
             </li>
