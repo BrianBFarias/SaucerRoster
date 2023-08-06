@@ -68,15 +68,31 @@
     border-bottom-left-radius: 2px;
 }
 
+@keyframes img-transistion{
+    0%{
+        right:100px;
+        opacity: 0;
+    }
+    100%{
+        right:0px;
+        opacity: 100%;
+    }
+    
+}
 
 #post-data img{
+    animation-name: img-transistion;
+    animation-duration: 1s;
+    animation-fill-mode:forwards;
+    animation-iteration-count: 1;
+    position: relative;
+
     object-fit: cover;
     justify-content: center;
     height: 520px;
     width: 260px;
     border-radius: 10px;
     margin: auto;
-
 }
 
 #post-data div{
@@ -85,7 +101,22 @@
     margin: auto;
 }
 
+@keyframes info{
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
 #post-data .description{
+    animation-name: info;
+    animation-duration: 1s;
+    animation-fill-mode:forwards;
+    animation-iteration-count: 1;
+    position: relative;
+
     padding: 16px;
     background-color: rgba(255, 255, 255, 0.523);
     max-width: 500px;
@@ -120,8 +151,6 @@
     border-radius: 8px;
 }
 
-
-
 #feedback button:hover{
     transition: 200ms;
     margin-top: 10px;
@@ -140,7 +169,26 @@
     font-weight: 500px;
 }
 
+@keyframes title{
+    0%{
+        opacity: 100%;
+    }
+    50%{
+        opacity: 50%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
 #feedback .title{
+    animation-name: title;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-fill-mode:forwards;
+    position: relative;
+
+    font-weight: bold;
     justify-content: center;
     margin: auto;
     width: fit-content;
@@ -168,7 +216,25 @@
     height: fit-content;
 }
 
+@keyframes display{
+    0%{
+        right: -150px;
+        color: transparent;
+        background-color: transparent;
+    }
+    100%{
+        right: 0px;
+    }
+}
+
+
 #post-data .ratings{
+    animation-name: display;
+    animation-duration: 1s;
+    animation-fill-mode:forwards;
+    animation-iteration-count: 1;
+    position: relative;
+
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto auto;
@@ -183,13 +249,16 @@
     gap: 30px;
 }
 #post-data .ratings div{
+    font-variant-numeric: tabular-nums;
+    position:static;
     font-size: 20px;
     text-align: center;
 
 }
 #post-data .ratings strong{
     font-size: 26px;
-    text-decoration: underline;
+    font-variant-numeric: tabular-nums;
+    margin: auto;
 }
 
 #post_feedback{

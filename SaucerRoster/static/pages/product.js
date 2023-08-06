@@ -5,6 +5,27 @@ if(!localStorage.getItem('spice-rate') && !localStorage.getItem('flavor-rate')){
 
 document.addEventListener('DOMContentLoaded', load);
 
+function animateValue(spice, flavor, spice_val, flavor_val, duration) {
+    let startTimestamp = null;
+
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const easeInOutQuad = function(t) {
+        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+      };
+      spice.innerHTML = `${Math.floor(easeInOutQuad(progress) * (spice_val - 0) + 0)}%`;
+      flavor.innerHTML = `${Math.floor(easeInOutQuad(progress) * (flavor_val - 0) + 0)}%`;
+
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    };
+    window.requestAnimationFrame(step);
+  }
+  
+
 function load(){
     post_id =document.getElementById("info-post").className;
 
@@ -14,9 +35,13 @@ function load(){
         spice_rate = Math.round((data.spice_rank/5) *100);
         flavor_rate = Math.round((data.flavor_rank/5) *100);
 
-        document.getElementById("info-post").querySelector(".spice").innerHTML = `<p>It has <strong>${spice_rate}%</strong> spicecness</p>`;
-        document.getElementById("info-post").querySelector(".flavor").innerHTML = `<p>Flavor is ranked at <strong>${flavor_rate}%</strong></p>`;
+        document.getElementById("info-post").querySelector(".spice").innerHTML = `<p>It has <strong id='spicePercent'>${spice_rate}%</strong> spicecness</p>`;
+        document.getElementById("info-post").querySelector(".flavor").innerHTML = `<p>Flavor is ranked at <strong id='flavorPercent'>${flavor_rate}%</strong></p>`;
 
+        const spice = document.getElementById("spicePercent");
+        const flavor = document.getElementById("flavorPercent");
+
+        animateValue(spice, flavor, spice_rate, flavor_rate, 5000);
       });
       
     fetch(`/post/${post_id}`)
@@ -32,9 +57,6 @@ function load(){
         }
 
       });
-
-
-
 }
 
 function spice_rating(value){
