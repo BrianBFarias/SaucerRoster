@@ -1,23 +1,16 @@
 footer{
-    flex-direction: column;
+    position:static;
+    bottom: 0px;
     width: 100%;
     background-color: rgb(218, 218, 218);
     padding: 15px;
     height: fit-content;
-    bottom:0px;
 }
-
-.backend{
-    background-color: black;
-}
-.body{
-    background-color: transparent;
-}
-
 
 footer p{
     color: rgb(48, 48, 48);
 }
+
 
 .list-inline-item a{
     color: rgb(48, 48, 48);

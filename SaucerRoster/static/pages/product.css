@@ -19,6 +19,10 @@
     height: 100%;
 }
 
+.body{
+    min-height: 90vh;
+}
+
 #post-data .info{
     justify-content: left;
     text-align: left;

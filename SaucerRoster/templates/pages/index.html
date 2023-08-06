@@ -2,76 +2,74 @@
 {% load static %}
 
 {% block body %}
-<body class="backscreen">
+<section class="backscreen">
     {% if invalid %}
-<div>
-    <h2 class="error"> Don't get heated... that sauce isn't in our database</h2>
-</div>
-{% else %}
-    {% if not user.is_authenticated %}
-<div id="message">
-    <p>Spice things up, Create an Account</p>
-
-</div>
-{% endif %}
-
-<h1>Spiciest</h1>
-<hr class="seperator">
-<div class="box">
-    <div id="top_5">
-        {% for data in spice %}
-        <a id="post" href="{% url 'Sauce' data.post.id %}">
-            <div>
-                <img src="{{ data.post.image.url }}" alt="">
-            </div>
-            <div>
-                <span class="fa-solid">{{ data.post.product }}</span>
-            </div>
-    
-            {{data.post.brand}}
-    
-            <div class="spice">
-                {% for spice in data.spice %}
-                <i class="fa-regular fa-pepper-hot"></i>
-                {% endfor %}
-                <p>{{data.post.rating.count}}</p>
-            </div>
-    
-        </a>
-        {% endfor %}
+    <div>
+        <h2 class="error"> Don't get heated... that sauce isn't in our database</h2>
     </div>
-</div>
-
-
-<h1>Most Flavorful</h1>
-<hr class="seperator">
-<div class="box">
-    <div id="top_5">
-        {% for data in flavor %}
-        <a id="post" href="{% url 'Sauce' data.post.id %}">
-            <div>
-                <img src="{{ data.post.image.url }}" alt="">
-            </div>
-            <div>
-                <span class="fa-solid">{{ data.post.product }}</span>
-            </div>
-            {{data.post.brand}}
-    
-            <div class="flavor">
-                {% for spice in data.flavor %}
-                <i class="fa fa-star checked"></i>
-                {% endfor %}
-                <p>{{data.post.rating.count}}</p>
-            </div>
-    
-        </a>
-        {% endfor %}
+        {% else %}
+        {% if not user.is_authenticated %}
+    <div id="message">
+        <p>Spice things up, Create an Account</p>
     </div>
-</div>
-</body>
-{% endif %}
-
-
+    {% endif %}
+        <section id="data">
+            <h1>Spiciest</h1>
+            <hr class="seperator">
+            <div class="box">
+                <div id="top_5">
+                    {% for data in spice %}
+                    <a id="post" href="{% url 'Sauce' data.post.id %}">
+                        <div>
+                            <img src="{{ data.post.image.url }}" alt="">
+                        </div>
+                        <div>
+                            <span class="fa-solid">{{ data.post.product }}</span>
+                        </div>
+                
+                        {{data.post.brand}}
+                
+                        <div class="spice">
+                            {% for spice in data.spice %}
+                            <i class="fa-regular fa-pepper-hot"></i>
+                            {% endfor %}
+                            <p>{{data.post.rating.count}}</p>
+                        </div>
+                
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            
+            <h1>Most Flavorful</h1>
+            <hr class="seperator">
+            <div class="box">
+                <div id="top_5">
+                    {% for data in flavor %}
+                    <a id="post" href="{% url 'Sauce' data.post.id %}">
+                        <div>
+                            <img src="{{ data.post.image.url }}" alt="">
+                        </div>
+                        <div>
+                            <span class="fa-solid">{{ data.post.product }}</span>
+                        </div>
+                        {{data.post.brand}}
+                
+                        <div class="flavor">
+                            {% for spice in data.flavor %}
+                            <i class="fa fa-star checked"></i>
+                            {% endfor %}
+                            <p>{{data.post.rating.count}}</p>
+                        </div>
+                
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+    </section>
 
 {% endblock %}
 
