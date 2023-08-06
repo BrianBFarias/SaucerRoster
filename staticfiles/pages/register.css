@@ -1,0 +1,43 @@
+.registering{
+    padding-top: 50px;
+    min-height: 400px;
+    text-align: center;
+    background-color: whitesmoke;
+}
+.registering a{
+    color: rgb(153, 68, 68);
+}
+.backend{
+    background-color: whitesmoke;
+}
+
+.footer{
+    position:fixed;
+}
+
+.registering h2{
+    margin-bottom: 20px;
+}
+
+.registering form input{
+    display: flex;
+    margin: auto;
+    max-width: 500px;
+}
+.registering form #button{
+    background-color: rgb(153, 68, 68);
+    border: 2px solid transparent;
+}
+.registering form #button:hover{
+    color: rgb(153, 68, 68);
+    background-color: transparent;
+    border: 2px solid rgb(153, 68, 68);
+}
+
+.registering form #search input{
+    background-color: rgba(0, 0, 0, 0.068);
+}
+
+.sub{
+    margin-top: 30px;
+}

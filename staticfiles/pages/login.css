@@ -1,0 +1,44 @@
+.login{
+    padding-top: 60px;
+    min-height: 400px;
+    text-align: center;
+    background-color: whitesmoke;
+}
+.login a{
+    color: rgb(153, 68, 68);
+}
+
+.backend{
+    background-color: whitesmoke;
+}
+
+.footer{
+    position:fixed;
+}
+
+.login h2{
+    margin-bottom: 20px;
+}
+
+.login form input{
+    display: flex;
+    margin: auto;
+    max-width: 500px;
+}
+
+.login form #button{
+    background-color: rgb(153, 68, 68);
+    border: 2px solid transparent;
+}
+.login form #button:hover{
+    color: rgb(153, 68, 68);
+    background-color: transparent;
+    border: 2px solid rgb(153, 68, 68);
+}
+
+.login form #search input{
+    background-color: rgba(0, 0, 0, 0.068);
+}
+.sub{
+    margin-top: 30px;
+}

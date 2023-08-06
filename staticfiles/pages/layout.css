@@ -1,0 +1,134 @@
+footer{
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(218, 218, 218);
+    padding: 15px;
+    height: fit-content;
+    bottom:0px;
+}
+
+.backend{
+    background-color: black;
+}
+.body{
+    background-color: transparent;
+}
+
+
+footer p{
+    color: rgb(48, 48, 48);
+}
+
+.list-inline-item a{
+    color: rgb(48, 48, 48);
+}
+
+form{
+    height: fit-content;
+}
+
+form .searchBar{
+    display: grid;
+    margin-left: 20px;
+    padding:2px ;
+    padding-inline: 10px;
+    border: 2px solid rgba(255, 255, 255, 0);
+    border-radius: 20px;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.233);
+    width: fit-content;
+    height: fit-content;
+}
+form .searchInput::placeholder{
+    color: rgb(250, 231, 231);
+}
+form .searchInput:focus{
+    background-color: rgba(245, 245, 245, 0.119);
+    color: rgb(241, 241, 241);
+}
+form .searchInput{
+    color: white;
+    background-color: transparent;
+    border: transparent;
+    font-size: 12px;
+    width: 300px;
+}
+.searchBar i{
+    color: rgba(255, 255, 255, 0.888);
+    font-size: 15px;
+    padding-right: 7px;
+    margin-right: 7px;
+    border-right: 2px solid rgba(255, 255, 255, 0.383);
+    padding-block: 3px;
+}
+
+.nav{
+    display:grid;
+    background-color:#913333;
+    align-items: center;
+    padding: 10px;
+    grid-column-gap: 20px;
+    grid-template-rows:1fr;
+    grid-template-columns: auto auto auto auto 1fr;
+    grid-template-areas: "a b c d e f g";
+    justify-content:left;
+}
+.logo{
+    height: 40px;
+    border-radius: 10px;
+}
+
+.login-status{
+    display: flex;
+    grid-area: f;
+    margin-right: -12px;
+    margin-top: 3px;
+}
+
+#light-nav{
+    display: inline;
+    font-size: 0;
+}
+
+#light-nav a{
+    text-decoration: none;
+    color: rgb(236, 236, 236); 
+    display:inline-block;
+    text-align:center;
+    font: normal 16px Arial;
+    font-weight: bold;
+
+}
+
+#light-nav a:hover{
+    transition: 300ms;
+    border-radius: 3px;
+    color: #913333;
+    background-color: rgba(255, 255, 255, 0.806);
+}
+
+#light-nav a::before {
+    display: block;
+    content: attr(title);
+    font-weight: bold;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+#dark-nav a{
+    text-decoration: none;
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(219, 219, 219);
+}
+
+
+.login-status .logout a{
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(219, 219, 219);
+}
