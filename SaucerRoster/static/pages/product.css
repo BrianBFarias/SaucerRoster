@@ -221,9 +221,12 @@
         right: -150px;
         color: transparent;
         background-color: transparent;
+        box-shadow: 102px 0px 0px transparent;
+
     }
     100%{
         right: 0px;
+        box-shadow: 102px 0px 0px #ad2c2c;
     }
 }
 

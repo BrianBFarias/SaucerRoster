@@ -40,11 +40,11 @@ function load() {
             for (var i = 0; i < 5; i++) {
                 symbol = document.createElement('i');
                 if(i<spice_rate){
-                    symbol.className ='fa-regular fa-pepper-hot';
+                    symbol.className ='fas fa-pepper-hot';
                     spice.append(symbol);
                     continue;
                 }
-                symbol.className ='fa-regular fa-pepper-hot';
+                symbol.className ='fas fa-pepper-hot';
                 symbol.id='out'
                 spice.append(symbol);
               }
