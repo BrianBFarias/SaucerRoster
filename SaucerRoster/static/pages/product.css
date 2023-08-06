@@ -9,11 +9,10 @@
     margin-top: 10px;
     margin-bottom: 30px;
     gap: 100px;
-    display: grid;
     justify-content: left;
     display: flex;
+    flex-wrap: wrap;
     height: fit-content;
-    flex-direction:auto;
     width: 100%;
 }
 
