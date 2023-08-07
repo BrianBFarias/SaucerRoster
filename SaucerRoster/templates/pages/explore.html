@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block body %}
-<body>
+<section class="explore-page">
     <div class="box">
         <div id="posts">
 
@@ -13,8 +13,10 @@
         <button class="next-btn" id="page-btn" onclick="next_post()">next</button>
         <button class="previous-btn" id="page-btn" onclick="back_post()">previous</button>
     </div>
+</section>
 
-</body>
+<div id="loader" class="center"></div>
+
 {% endblock %}
 
 {% block script %}

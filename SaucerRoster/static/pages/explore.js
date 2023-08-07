@@ -108,3 +108,13 @@ function back_post(){
   localStorage.setItem('starting',start*1-10);
   load();
 }
+
+document.onreadystatechange = function() {
+  if (document.readyState !== "complete") {
+      document.querySelector("body").style.visibility = "none";
+      document.querySelector("#loader").style.visibility = "visible";
+  } else {
+      document.querySelector("#loader").style.display = "none";
+      document.querySelector("body").style.visibility = "visible";
+  }
+};
