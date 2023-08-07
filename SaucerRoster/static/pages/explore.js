@@ -51,7 +51,7 @@ function load() {
             for (var i = 0; i < 5; i++) {
                 symbol = document.createElement('i');
                 if(i<flavor_rate){
-                    symbol.className ='fa fa-star checked';
+                    symbol.className ='fas fa-star checked';
                     flavor.append(symbol);
                     continue;
                 }
@@ -68,7 +68,7 @@ function load() {
                 <img src="${hotSauce.image}" alt="">
               </div>
               <div>
-                <span class="fa-solid">${hotSauce.product}</span>
+                <span class="fas fa-solid">${hotSauce.product}</span>
               </div>
               ${hotSauce.brand}
               <div class="spice">

@@ -24,7 +24,7 @@
                             <img src="{{ data.post.image.url }}" alt="">
                         </div>
                         <div>
-                            <span class="fa-solid">{{ data.post.product }}</span>
+                            <span class="fas fa-solid">{{ data.post.product }}</span>
                         </div>
                 
                         {{data.post.brand}}
@@ -52,13 +52,13 @@
                             <img src="{{ data.post.image.url }}" alt="">
                         </div>
                         <div>
-                            <span class="fa-solid">{{ data.post.product }}</span>
+                            <span class="fas fa-solid">{{ data.post.product }}</span>
                         </div>
                         {{data.post.brand}}
                 
                         <div class="flavor">
                             {% for spice in data.flavor %}
-                            <i class="fa fa-star checked"></i>
+                            <i class="fas fa-star checked"></i>
                             {% endfor %}
                             <p>{{data.post.rating.count}}</p>
                         </div>
