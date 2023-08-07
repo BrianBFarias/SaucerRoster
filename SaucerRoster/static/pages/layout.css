@@ -109,6 +109,36 @@ form .searchInput{
     color: #913333;
 }
 
+.nav .title{
+    display: flex;
+}
+
+@keyframes glow{
+    0%{
+        color: #913333;
+    }
+    50%{
+        color: #91333383;
+    }
+    100%{
+        color: #913333;
+    }
+}
+.nav .title p{
+    animation-name: glow;
+    position: relative;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+
+    color: #913333;
+    font-weight: bold;
+    background-color: white;
+    font-size:11px ;
+    height: fit-content;
+    padding: 3px;
+    border-radius: 6px;
+}
+
 #light-nav a:hover{
     transition: 300ms;
     border-radius: 3px;
