@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-&68kr@p#646afx^5!$mk91d-f^!d6j3pb4fl1*or!-u#ezao15
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','saucerroster.up.railway.app']
+ALLOWED_HOSTS = ['127.0.0.1','saucer-roster.up.railway.app']
 
 
 # Application definition
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://saucerroster.up.railway.app','https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://saucer-roster.up.railway.app','https://*.127.0.0.1']
 
 
 
