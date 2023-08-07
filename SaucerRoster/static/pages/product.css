@@ -242,26 +242,29 @@
     grid-template-columns: auto;
     grid-template-rows: auto auto;
     height: fit-content;
-    min-width: max-content;
+    width: 200px;
     color: white;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     background-color: #ad2c2c;
-    box-shadow: 102px 0px 0px #ad2c2c;
+    box-shadow: 702px 0px 0px #ad2c2c;
+    margin: auto;
     padding: 15PX;
     gap: 30px;
 }
+
 #post-data .ratings div{
     font-variant-numeric: tabular-nums;
     position:static;
     font-size: 20px;
     text-align: center;
+    margin: auto;
 
 }
 #post-data .ratings strong{
     font-size: 26px;
+    position: relative;
     font-variant-numeric: tabular-nums;
-    margin: auto;
 }
 
 #post_feedback{
