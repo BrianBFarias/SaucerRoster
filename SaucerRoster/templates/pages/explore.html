@@ -2,20 +2,152 @@
 {% load static %}
 
 {% block body %}
-<section class="explore-page">
-    <div class="box">
-        <div id="posts">
+<div id="explore-page">
+    <section class="selection-bar">
+        <div>
+            <button class="filter-btn" onclick="clear_filter()"> Clear Filter </button>
+            <button onclick="toggle_menu()" class="fas fa-xmark"></button>
+        </div>
+
+        <div>
+            <button class="filter-submit" onclick="filter()"> Filter <i class="fas fa-sliders"></i> </button>
 
         </div>
-    </div>
 
-    <div id="page-controls">
-        <button class="next-btn" id="page-btn" onclick="next_post()">next</button>
-        <button class="previous-btn" id="page-btn" onclick="back_post()">previous</button>
-    </div>
-</section>
+        <div class="filter">
+            <h5>Flavor</h5>
+            <form class="flavor_filter">
+                <div class="selection">
+                    <input type="radio" id="flavor1" name="Frating" value="1" onclick="Select_flavor()">
+                    <label for="flavor1">
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star empty "></i>
+                        <i class="fas fa-star empty "></i>
+                        <i class="fas fa-star empty "></i>
+                        <i class="fas fa-star empty "></i>
+                        <i> <p>& Up</p> </i>
+                    </label>
+                </div>
+    
+                <div class="selection">
+                    <input type="radio" id="flavor2" name="Frating" value="2" onclick="Select_flavor()">
+                    <label for="flavor2">
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star empty "></i>
+                        <i class="fas fa-star empty "></i>
+                        <i class="fas fa-star empty "></i>
+                        <i> <p>& Up</p> </i>
+                    </label>
+                </div>
+    
+                <div class="selection">
+                    <input type="radio" id="flavor3" name="Frating" value="3" onclick="Select_flavor()">
+                    <label for="flavor3">
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star empty "></i>
+                        <i class="fas fa-star empty "></i>
+                        <i> <p>& Up</p> </i>
+                    </label>
+                </div>
+    
+                <div class="selection">
+                    <input type="radio" id="flavor4" name="Frating" value="4" onclick="Select_flavor()">
+                    <label for="flavor4">
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star empty "></i>
+                        <i> <p>& Up</p> </i>
+                    </label>
+                </div>
+            </form>
+        </div>
 
-<div id="loader" class="center"></div>
+
+        <div class="filter">
+            <h5>Spice</h5>
+            <form class="spice_filter">
+                <div class="selection">
+                    <input type="radio" id="spice1" name="Srating" value="1" onclick="Select_spice()">
+                    <label for="spice1">
+                        <i class="fas fa-pepper-hot"></i>
+                        <i class="fas fa-pepper-hot empty"></i>
+                        <i class="fas fa-pepper-hot empty"></i>
+                        <i class="fas fa-pepper-hot empty"></i>
+                        <i class="fas fa-pepper-hot empty"></i>
+                        <i> <p>& Up</p> </i>
+                    </label>
+                </div>
+
+                <div class="selection">
+                    <input type="radio" id="spice2" name="Srating" value="2" onclick="Select_spice()">
+                    <label for="spice2">
+                        <i class="fas fa-pepper-hot"></i>
+                        <i class="fas fa-pepper-hot"></i>
+                        <i class="fas fa-pepper-hot empty"></i>
+                        <i class="fas fa-pepper-hot empty"></i>
+                        <i class="fas fa-pepper-hot empty"></i>
+                        <i> <p>& Up</p> </i>
+                    </label>
+                </div>
+    
+                <div class="selection">
+                    <input type="radio" id="spice3" name="Srating" value="3" onclick="Select_spice()">
+                    <label for="spice3">
+                        <i class="fas fa-pepper-hot"></i>
+                        <i class="fas fa-pepper-hot"></i>
+                        <i class="fas fa-pepper-hot"></i>
+                        <i class="fas fa-pepper-hot empty"></i>
+                        <i class="fas fa-pepper-hot empty"></i>
+                        <i> <p>& Up</p> </i>
+                    </label>
+                </div>
+    
+                <div class="selection">
+                    <input type="radio" id="spice4" name="Srating" value="4" onclick="Select_spice()">
+                    <label for="spice4">
+                        <i class="fas fa-pepper-hot"></i>
+                        <i class="fas fa-pepper-hot"></i>
+                        <i class="fas fa-pepper-hot"></i>
+                        <i class="fas fa-pepper-hot"></i>
+                        <i class="fas fa-pepper-hot empty"></i>
+                        <i> <p>& Up</p> </i>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="open-selection-bar">
+        <button onclick="toggle_menu()"> <i class="fas fa-sliders"></i> </button>
+    </section>
+
+    <section class="post-section">
+        <section class="explore-page">
+            <div class="box">
+                <div id="posts">
+        
+                </div>
+            </div>
+        
+            <div id="page-controls">
+                <button class="next-btn" id="page-btn" onclick="next_post()">next</button>
+                <button class="previous-btn" id="page-btn" onclick="back_post()">previous</button>
+            </div>
+        </section>
+        
+        <div id="loader" class="center"></div>
+    </section>
+
+    <section class="invalid">
+        <h2>No sauces within those classifications</h2>
+    </section>
+
+</div>
 
 
 {% endblock %}

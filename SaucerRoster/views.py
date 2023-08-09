@@ -22,8 +22,9 @@ def posts(API, request):
             this_spice += rating.spice
             this_flavor += rating.flavor
 
-        spice_rank = [0]* round(this_spice/post.rating.count())
-        flavor_rank = [0]* round(this_flavor/post.rating.count())
+        spice_rank = round(this_spice/post.rating.count())
+        flavor_rank = round(this_flavor/post.rating.count())
+
         if(API):
             post ={
             'post':post.serialize(request.user),
@@ -33,8 +34,8 @@ def posts(API, request):
         else:
             post ={
             'post':post,
-            'spice':spice_rank,
-            'flavor':flavor_rank
+            'spice':[0]*spice_rank,
+            'flavor':[0]*flavor_rank
         }
             
         postings.append(post)
@@ -155,7 +156,27 @@ def Allposts(request):
     start = int(request.GET.get("start") or 0)
     end = int(request.GET.get("end") or (start + 9))
 
+    filter_spice = int(request.GET.get("spice") or 0)
+    filter_flavor = int(request.GET.get("flavor") or 0)
+
     postings = posts(True, request)
+
+    post_num = 0
+
+    while post_num < len(postings):
+        print(postings[post_num]['post'])
+        print(postings[post_num]['flavor'], ' < 3')
+        print(postings[post_num]['spice'] < filter_spice or postings[post_num]['flavor'] < filter_flavor)
+
+        if postings[post_num]['spice'] < filter_spice or postings[post_num]['flavor'] < filter_flavor:
+            postings.remove(postings[post_num])
+            continue
+        else:
+            post_num += 1
+        
+    if not postings:
+        return JsonResponse(False, safe=False)
+    
     return JsonResponse([post['post'] for post in postings[start:end]], safe=False)
 
 def sauce(request, post_id):
@@ -171,7 +192,6 @@ def sauce(request, post_id):
 def review(request, post_id):
     spice_rating = int(request.GET.get("spice") or 3)
     flavor_rating = int(request.GET.get("flavor") or 3)
-
     ratings = Post.objects.get(id=post_id).rating.all()
 
     if (ratings.filter(poster=request.user)):
@@ -199,7 +219,7 @@ def ratingA(request, post_id):
         this_spice += rating.spice
         this_flavor += rating.flavor
 
-    spice_rank = this_spice/post.rating.count()
-    flavor_rank = this_flavor/post.rating.count()
+    spice_rank = round(this_spice/post.rating.count())
+    flavor_rank = round(this_flavor/post.rating.count())
 
     return JsonResponse({'spice_rank':spice_rank, 'flavor_rank': flavor_rank}, safe=False)
