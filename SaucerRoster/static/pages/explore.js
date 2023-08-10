@@ -76,7 +76,7 @@ function load() {
             aTag.id='post';
             aTag.href = ` Sauce/${hotSauce.id} `;
             aTag.innerHTML = `
-              <div>
+              <div class='prod_img'>
                 <img src="${hotSauce.image}" alt="">
               </div>
               <div>
