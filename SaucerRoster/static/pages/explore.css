@@ -308,10 +308,8 @@ span.fa-solid {
 }
 
 #post:hover{
-    animation:present 1s linear infinite forwards;
-    position: relative;
+    animation:present 2s linear infinite forwards;
     border: 3px solid rgba(147, 35, 35, 0.759);
-
 }
 
 #post:hover img{

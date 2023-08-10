@@ -90,7 +90,7 @@ function load() {
                 <img src="${hotSauce.image}" alt="">
               </div>
               <div>
-                <span class="fas fa-solid">${hotSauce.product}</span>
+                <span class="fas">${hotSauce.product}</span>
               </div>
               ${hotSauce.brand}
               <div class="spice">
