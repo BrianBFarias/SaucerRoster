@@ -291,9 +291,11 @@
     align-items: center;
     justify-content: center;
     margin: auto;
+    width: 100vw;
 }
 
 #top_5{
+    
     display: grid;
     padding-inline: 50px;
     margin: 30px;
