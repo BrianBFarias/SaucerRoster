@@ -43,6 +43,7 @@
     grid-template-columns: auto auto;
     grid-template-rows: auto;
 }
+
 #explore-page section{
     width: fit-content;
 }
@@ -203,7 +204,6 @@
 
 #posts{
     display: flex;
-    margin: 30px;
     gap: 40px;
     justify-content: center;
     padding-inline: 50px;
