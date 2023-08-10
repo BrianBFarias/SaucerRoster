@@ -89,10 +89,12 @@ function load() {
               <div class='prod_img'>
                 <img src="${hotSauce.image}" alt="">
               </div>
-              <div>
-                <span class="fas">${hotSauce.product}</span>
+              <div class='text_desc'>
+                <div>
+                  <span class="fas">${hotSauce.product}</span>
+                </div>
+                ${hotSauce.brand}
               </div>
-              ${hotSauce.brand}
               <div class="spice">
                 ${spice.innerHTML}
               </div>
@@ -168,7 +170,7 @@ function clear_filter(){
 
   localStorage.setItem('filterS',0)
   localStorage.setItem('filterF',0)
-
+  localStorage.setItem('starting',0)
 
   toggle_menu()
   load()

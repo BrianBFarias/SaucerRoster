@@ -8,7 +8,7 @@ from django.urls import reverse
 from django.db import IntegrityError
 from .models import User,Post,rating
 from django.core.serializers import serialize
-
+from django.db.models import Avg
 
 # Create your views here.
 
@@ -40,6 +40,58 @@ def posts(API, request):
             
         postings.append(post)
     return postings
+
+
+def clarify(clarify):
+    postings=[]
+    for post in clarify:
+        this_spice =0
+        this_flavor=0
+        for rating in post.rating.all():
+            this_spice += rating.spice
+            this_flavor += rating.flavor
+
+        spice_rank = round(this_spice/post.rating.count())
+        flavor_rank = round(this_flavor/post.rating.count())
+
+        post ={
+            'post':post,
+            'overall':spice_rank/flavor_rank,
+            'spice':[0]*spice_rank,
+            'flavor':[0]*flavor_rank
+        }
+            
+        postings.append(post)
+    return postings
+
+def suggestion(post_id):
+  """Returns a list of hot sauces that have been rated highly by the people who rated the current hot sauce highly."""
+  sauce = Post.objects.get(id=post_id)
+
+  # Get the ratings for the current hot sauce.
+  ratings = sauce.rating.all()
+
+  # Find the users who rated the current hot sauce.
+  users = []
+  for rating in ratings:
+    users.append(rating.poster)
+
+  # Find all of the other hot sauces that have been rated by the users who rated the current hot sauce highly.
+  similar_hot_sauces = []
+  for user in users:
+    for other_hot_sauce in Post.objects.filter(rating__poster=user):
+      if other_hot_sauce != sauce:
+        similar_hot_sauces.append(other_hot_sauce)
+
+  # Sort the list of hot sauces by the highest average rating.
+  similar_hot_sauces =clarify(similar_hot_sauces)
+  vo=[]
+  vo.append(sauce)
+  vo = clarify(vo)[0]['overall']
+
+  similar_hot_sauces = sorted(similar_hot_sauces, key=lambda post: abs(post["overall"] - vo))
+
+  return similar_hot_sauces[:5]
 
 def index(request):
     
@@ -184,7 +236,8 @@ def sauce(request, post_id):
     post = Post.objects.get(id=post_id)
 
     return render(request, 'pages/product.html', {
-        'product':post
+        'product':post,
+        'suggestion': suggestion(post_id)
     })
 
 @login_required

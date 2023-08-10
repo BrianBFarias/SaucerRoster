@@ -275,3 +275,86 @@
     font-size: 25px;
     background-color: white;
 }
+
+.fy{
+    background-color: whitesmoke;
+    text-align: center;
+    justify-content: center;
+}
+
+.fy h4{
+    margin-top: 20px;
+}
+
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+#top_5{
+    display: grid;
+    padding-inline: 50px;
+    margin: 30px;
+    width: fit-content;
+    justify-content:first baseline;
+    gap: 70px;
+    grid-template-columns: auto auto auto auto 1fr;
+    padding-bottom: 60px;
+    border-radius: 10px;
+    padding-block: 20px;
+    overflow: scroll;
+}
+
+#post{
+    text-decoration: none;
+    text-align: center;
+    width: fit-content;
+    max-width: 200px;
+    max-height: 400px;
+    padding-block: 20px;
+    padding-inline: 20px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+#post img {
+    object-fit:cover;
+    height: 2in;
+    max-width: 1.5in;
+    overflow: hidden;
+    padding-bottom: 20px;
+    border-radius: 6px;
+}
+#post span{
+    max-width: 300px;
+}
+
+#post p{
+    display: inline;
+    color: black;
+}
+
+#post .fa-pepper-hot{
+    color:rgb(172, 63, 63);
+}
+
+span .fa-solid {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-size: 16px;
+    color: rgb(22, 22, 22);
+}
+
+#post .checked {
+    color: rgb(166, 108, 0);
+}
+
+.seperator{
+    width: 94%;
+}
+#post{
+    text-decoration: none;
+    color: black;
+}

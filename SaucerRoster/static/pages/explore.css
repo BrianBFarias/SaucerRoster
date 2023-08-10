@@ -12,7 +12,7 @@
 }
 
 .post-section .explore-page{
-    min-width: 80vw;
+    min-width: 100%;
 }
 
 .selection-bar input{
@@ -218,6 +218,7 @@
 }
 
 #post{
+    position: relative;
     text-decoration: none;
     text-align: center;
     width: fit-content;
@@ -240,23 +241,20 @@
 
 #post .fa-pepper-hot{
     color:rgb(172, 63, 63);
-}
-
-span.fa-solid {
-    display: inline-block;
-    font-family: FontAwesome;
-    font-size: 16px;
-    color: rgb(22, 22, 22);
+    font-size: 14px;
 }
 
 .flavor .checked {
     color: rgb(166, 108, 0);
+    font-size: 14px;
 }
 .flavor {
     color: rgba(0, 0, 0, 0.325);
+    font-size: 14px;
 }
 .spice #out{
     color:rgba(43, 13, 13, 0.343);
+    font-size: 14px;
 }
 
 .seperator{
@@ -314,6 +312,39 @@ span.fa-solid {
 
 #post:hover img{
     transform:scale(1.05);
+}
+
+@keyframes fade{
+    0%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0%;
+        margin-bottom: -9px;
+    }
+}
+
+#post:hover .text_desc{
+    animation:fade 150ms linear 1 forwards;
+    position:relative;
+    overflow: hidden;
+    height: 0%;
+}
+
+@keyframes grow{
+    0%{
+        font-size: 14px;
+    }
+    100%{
+        font-size: 20px;
+    }
+}
+
+#post:hover .fa-pepper-hot, #post:hover .spice #out, #post:hover .flavor, #post:hover .flavor .checked {
+    animation:grow 150ms linear 1 forwards;
+    position:relative;
+    font-size: 20px;
+
 }
 
 .prod_img {

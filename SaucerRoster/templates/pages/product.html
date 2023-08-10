@@ -69,15 +69,44 @@
     <section id="feedback">
         <p>Login to rate items</p>
     </section>
-    
     {% endif %}
+
+    <section class="fy">
+        <h4>You also might like <h4>
+        <div class="box">
+            <div id="top_5">
+                {% for data in suggestion %}
+                <a id="post" href="{% url 'Sauce' data.post.id %}">
+                    <div>
+                        <img src="{{ data.post.image.url }}" alt="">
+                    </div>
+                    <div>
+                        <span class="fas fa-solid">{{ data.post.product }}</span>
+                    </div>
+            
+                    {{data.post.brand}}
+            
+                    <div class="spice">
+                        {% for spice in data.spice %}
+                        <i class="fas fa-pepper-hot"></i>
+                        {% endfor %}
+                    </div>
+                    <div class="flavor">
+                        {% for spice in data.flavor %}
+                        <i class="fas fa-star checked"></i>
+                        {% endfor %}
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
     
 </div>
 
 {% endblock %}
 
 {% block script %}
-<link href="{% static 'pages/product.css' %}" rel="stylesheet">
 <script src="{% static 'pages/product.js' %}"></script>
-<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+<link href="{% static 'pages/product.css' %}" rel="stylesheet">
 {% endblock %}
