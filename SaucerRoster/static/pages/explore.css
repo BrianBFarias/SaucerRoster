@@ -43,7 +43,20 @@
     width: fit-content;
 }
 
-.selection-bar, .open-selection-bar{
+@keyframes bar{
+    0%{
+        right: 70%;
+        border-right: 2px solid rgb(85, 85, 85);
+    }
+
+    100%{
+        right: 0;
+        border-right: 2px solid transparent;
+    }
+
+}
+
+.open-selection-bar{
     max-width: fit-content;
     padding-top: 20px;
     padding-inline: 10px;
@@ -59,26 +72,10 @@
     height: 100%;
     border-right: 2px solid transparent;
     background-color: transparent;
-    justify-content: center;}
+    justify-content: center;
 
-@keyframes open{
-    0%{
-        right: 70%;
-    }
-    20%{
-
-    }
-    100%{
-        right: 0;
-    }
-
-}
-
-.selection-bar{
-    animation-name: open;
-    animation-duration: 500ms;
-    animation-fill-mode: forwards;
     position: relative;
+    animation:bar 200ms linear 1 forwards;
 }
 
 .selection-bar div{
@@ -168,7 +165,6 @@
 }
 
 .selection-bar .filter-btn,.selection-bar .filter-submit{
-    margin-bottom: 15px;
     border-radius: 5px;
     border: 2px solid transparent;
     color: black;
@@ -180,7 +176,7 @@
     width:100px;
 }
 .selection-bar .filter-btn:hover, .selection-bar .filter-submit:hover{
-    background-color: rgba(255, 255, 255, 0.898);
+    background-color: rgb(255, 255, 255);
 }
 
 @keyframes spin {
