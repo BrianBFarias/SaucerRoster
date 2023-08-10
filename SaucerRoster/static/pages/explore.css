@@ -30,17 +30,6 @@
     margin: auto;
 }
 
-.filter .selected{
-    border: 2px solid transparent;
-    height: min-content;
-    background-color: rgba(0, 0, 0, 0.142);
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    border-radius: 5px;
-}
-
 .empty{
     opacity: 30%;
 }
@@ -59,9 +48,18 @@
     padding-top: 20px;
     padding-inline: 10px;
     height: 100%;
-    background-color: rgb(218, 203, 203);
+    border-right: 2px solid rgb(85, 85, 85);
+    background-color: transparent;
     justify-content: center;
 }
+.selection-bar{
+    max-width: fit-content;
+    padding-top: 20px;
+    padding-inline: 10px;
+    height: 100%;
+    border-right: 2px solid transparent;
+    background-color: transparent;
+    justify-content: center;}
 
 @keyframes open{
     0%{
@@ -90,7 +88,6 @@
     width: 100%;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 10px;
 }
 .fa-xmark{
     background-color: transparent;
@@ -113,7 +110,6 @@
     text-align: center;
     padding-block: 5px;
     width: 100%;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.283);
     font-size: 14px;
 }
 
@@ -144,13 +140,27 @@
 .selection, .selection-bar .checked{
     display: inline-block;
     justify-content: center;
+    height: fit-content;
     align-items: center;
     margin: auto;
     border-radius: 5px;
+    margin-bottom: 2px;
+}
+.selected{
+    display: inline-block;
+    justify-content: center;
+    height: fit-content;
+    align-items: center;
+    margin: auto;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.142);
+    margin-bottom: 2px;
 }
 
-.selection label{
+.selection label, .selected label{
+    padding-bottom: 4px;
     margin: auto;
+    padding-right: 5px;
 }
 
 .selection:hover{
@@ -170,7 +180,7 @@
     width:100px;
 }
 .selection-bar .filter-btn:hover, .selection-bar .filter-submit:hover{
-    background-color: rgba(0, 0, 0, 0.067);
+    background-color: rgba(255, 255, 255, 0.898);
 }
 
 @keyframes spin {
