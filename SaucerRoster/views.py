@@ -175,8 +175,8 @@ def Allposts(request):
             post_num += 1
         
     if not postings:
-        return JsonResponse(False, safe=False)
-    
+        return JsonResponse(False, safe=False)    
+
     return JsonResponse([post['post'] for post in postings[start:end]], safe=False)
 
 def sauce(request, post_id):

@@ -114,6 +114,8 @@ h2{
   background-color: rgba(181, 131, 95, 0.078);
   color: rgb(75, 75, 75);
   border: 2px solid rgb(181, 95, 95);
+  width: 100%;
+  overflow: hidden;
   padding: .5rem;
   font-family: sans-serif;
   border-radius: 5px;
@@ -136,7 +138,7 @@ h2{
 
 .radio-toolbar, .radio-toolbar2{
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto auto;
   gap: 20px;
   margin: auto;
   width: fit-content;

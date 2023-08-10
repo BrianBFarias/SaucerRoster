@@ -6,7 +6,7 @@ if(!localStorage.getItem('filterS') || !localStorage.getItem('filterF')){
   localStorage.setItem('filterF',0)
 }
 // Load posts 10 at a time
-const quantity = 21;
+const quantity = 12;
 
 
 document.addEventListener('DOMContentLoaded', load);
@@ -18,9 +18,18 @@ function load() {
     document.querySelector('.open-selection-bar').style.display = 'block';
 
     // Set start and end post numbers, and update counter
-    const start = localStorage.getItem('starting');
-    const end = start*1 + quantity - 1;
-    starting = end + 1;
+
+    let start;
+
+    if(localStorage.getItem('starting') != 0){
+      start=localStorage.getItem('starting')-1;
+    }
+    else{
+      start=localStorage.getItem('starting');
+    }
+
+    const end = start*1 + quantity;
+
 
     hotSauceList = document.getElementById("posts");
     hotSauceList.innerHTML='';
@@ -36,14 +45,15 @@ function load() {
           document.querySelector('.post-section').style.display = 'block';
           document.querySelector('.invalid').style.display = 'none';
 
-          for (const hotSauce of data) {
+          one_page= data.slice(0,11);
+
+          for (const hotSauce of one_page) {
             spice_rate=0,flavor_rate=0;
 
             const response = await fetch(`/rating/${hotSauce.id}`);
             const data = await response.json();
             spice_rate = data.spice_rank;
             flavor_rate = data.flavor_rank;
-            console.log(hotSauce.product, flavor_rate)
 
             spice = document.createElement('div');
             spice.className='spice';
@@ -93,14 +103,14 @@ function load() {
             hotSauceList.appendChild(aTag);
           }
 
-        if(data.length >= 10 && start==0){
+        if(data.length > 11 && start==0){
             document.querySelector('.next-btn').style.display = 'block';
         }
-        if(data.length >= 10 && start > 0){
+        if(data.length >= 11 && start > 0){
             document.querySelector('.previous-btn').style.display = 'block';
             document.querySelector('.next-btn').style.display = 'block';
         }
-        if(data.length <= 10 && start > 0){
+        if(data.length <= 11 && start > 0){
             document.querySelector('.previous-btn').style.display = 'block';
         }
         }
@@ -109,16 +119,14 @@ function load() {
 
 function next_post(){
   start = localStorage.getItem('starting');
-  localStorage.setItem('starting',start*1+10)
-  localStorage.setItem('starting',start*1+10);
+  localStorage.setItem('starting',start*1+12)
   load();
 }
 
 
 function back_post(){
   start = localStorage.getItem('starting');
-  localStorage.setItem('starting',start*1-10)
-  localStorage.setItem('starting',start*1-10);
+  localStorage.setItem('starting',start*1-12)
   load();
 }
 
@@ -176,6 +184,7 @@ function filter(){
     var flavor_rating = document.querySelector('input[type=radio][name=Frating]:checked');
     localStorage.setItem('filterF',flavor_rating.value)
   }
+  localStorage.setItem('starting',0)
   load()
 }
 

@@ -11,6 +11,10 @@
     padding: 00px;
 }
 
+.post-section .explore-page{
+    min-width: 80vw;
+}
+
 .selection-bar input{
     visibility:hidden;
     width: 0px;

@@ -9,8 +9,8 @@ class User(AbstractUser):
 
 class rating(models.Model):
     poster = models.ForeignKey(User, on_delete=models.CASCADE)
-    spice = models.IntegerField()
-    flavor = models.IntegerField()
+    spice = models.IntegerField(default=0)
+    flavor = models.IntegerField(default=0)
 
     def __str__(self):
         return f"{self.poster}"

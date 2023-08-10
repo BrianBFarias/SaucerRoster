@@ -125,7 +125,7 @@ span .fa-solid {
     padding-block: 10px;
     padding-top: 20px;
     font-size: 30px;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif ;
+    font-family:system-ui;
     font-weight: bold;
     text-align: center;
 }
