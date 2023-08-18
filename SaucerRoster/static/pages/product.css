@@ -267,7 +267,7 @@
     font-variant-numeric: tabular-nums;
 }
 
-#post_feedback{
+#post_feedback, #just-submited{
     text-align: center;
     justify-content: center;
     padding-top: 25px;

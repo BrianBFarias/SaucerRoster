@@ -50,10 +50,13 @@ function load(){
         if(data.reviewed){
             document.getElementById('feedback').style.display='none';
             document.getElementById('post_feedback').style.display='block';
+            document.getElementById('just-submited').style.display='none';
+
         }
         else{
             document.getElementById('feedback').style.display='block';
             document.getElementById('post_feedback').style.display='none';
+            document.getElementById('just-submited').style.display='none';
         }
 
       });
@@ -102,11 +105,10 @@ function submit(){
         })
       })
       .then(response => response.json())
-      .then(result => {
-        flavor_rating(0)
-        spice_rating(0)
-          // Print result
-          console.log(result);
-          load()
-      });
+      localStorage.setItem('spice-rate',0)
+      localStorage.setItem('flavor-rate',0)
+
+      document.getElementById('just-submited').style.display='block';
+      document.getElementById('feedback').style.display='none';
+      document.getElementById('post_feedback').style.display='none';
 }
