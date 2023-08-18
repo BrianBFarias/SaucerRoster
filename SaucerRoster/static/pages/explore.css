@@ -23,8 +23,7 @@
 
 .invalid{
     height: 80vh;
-    width: 100%;
-
+    min-width: 85vw;
 }
 .invalid h2{
     color: rgba(0, 0, 0, 0.649);
@@ -99,6 +98,7 @@ fa-sliders{
 }
 .fa-xmark{
     color: black;
+    font-size: 16px;
     background-color: transparent;
     border: none;
     height: fit-content;

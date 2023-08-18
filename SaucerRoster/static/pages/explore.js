@@ -8,8 +8,12 @@ if(!localStorage.getItem('filterS') || !localStorage.getItem('filterF')){
 // Load posts 10 at a time
 const quantity = 13;
 
-
+document.addEventListener('DOMContentLoaded', reset_page);
 document.addEventListener('DOMContentLoaded', load);
+
+function reset_page(){
+  localStorage.setItem('starting',0)
+}
 
 function load() {
     document.querySelector('.next-btn').style.display = 'none';
@@ -148,7 +152,6 @@ function toggle_menu(){
     document.querySelector(".selection-bar").style.display = "none";
   }
   else{
-
     document.querySelector(".open-selection-bar").style.display = "none";
     document.querySelector(".selection-bar").style.display = "block";
   }
