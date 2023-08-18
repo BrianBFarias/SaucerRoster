@@ -272,7 +272,7 @@ def ratingA(request, post_id):
         this_spice += rating.spice
         this_flavor += rating.flavor
 
-    spice_rank = round(this_spice/post.rating.count())
-    flavor_rank = round(this_flavor/post.rating.count())
+    spice_rank = this_spice/post.rating.count()
+    flavor_rank = this_flavor/post.rating.count()
 
     return JsonResponse({'spice_rank':spice_rank, 'flavor_rank': flavor_rank}, safe=False)
