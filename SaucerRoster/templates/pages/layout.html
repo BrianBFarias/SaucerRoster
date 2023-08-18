@@ -26,7 +26,7 @@
             <li class="nav-item" id="light-nav">
                 <a class="nav-link" href="{% url 'explore' %}" title="Explore">Explore</a>
             </li>
-            {% if user.is_authenticated %}
+            {% if user.username == 'admin' %}
             <li class="add-item" id="light-add-nav">
                 <a id="add" class="nav-link" href="{% url 'add' %}"><i class="fas fa-plus"></i></a>
             </li>

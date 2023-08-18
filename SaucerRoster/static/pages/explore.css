@@ -13,6 +13,7 @@
 
 .post-section .explore-page{
     min-width: 100%;
+    min-width: 85vw;
 }
 
 .selection-bar input{
@@ -42,6 +43,7 @@
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto;
+    width: fit-content;
 }
 
 #explore-page section{
@@ -70,6 +72,11 @@
     background-color: transparent;
     justify-content: center;
 }
+
+fa-sliders{
+    color: black;
+}
+
 .selection-bar{
     max-width: fit-content;
     padding-top: 20px;
@@ -78,7 +85,6 @@
     border-right: 2px solid transparent;
     background-color: transparent;
     justify-content: center;
-
     position: relative;
     animation:bar 200ms linear 1 forwards;
 }
@@ -92,6 +98,7 @@
     gap: 10px;
 }
 .fa-xmark{
+    color: black;
     background-color: transparent;
     border: none;
     height: fit-content;
@@ -169,18 +176,35 @@
     background-color: rgba(0, 0, 0, 0.082);
 }
 
-.selection-bar .filter-btn,.selection-bar .filter-submit{
+.selection-bar .filter-btn,.selection-bar{
     border-radius: 5px;
     border: 2px solid transparent;
     color: black;
     margin: auto;
     font-size: 12px;
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(240, 240, 240);
 }
+
+.filter-submit{
+    display: inline;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    margin-top: 11px;
+    color: white;
+    font-size: 12px;
+    background-color: rgba(51, 117, 33, 0.596);
+}
+
+.filter-submit:hover{
+    background-color: transparent;
+    color: rgba(38, 87, 24, 0.596);
+    border: 2px solid rgba(37, 85, 24, 0.596);
+}
+
 .selection-bar .filter-submit{
     width:100px;
 }
-.selection-bar .filter-btn:hover, .selection-bar .filter-submit:hover{
+.selection-bar .filter-btn:hover, .selection-bar{
     background-color: rgb(255, 255, 255);
 }
 
