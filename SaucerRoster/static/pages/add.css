@@ -2,7 +2,7 @@
   justify-content: center;
   display: grid;
   text-align: center;
-  min-height: 84.7vh;
+  min-height: 87.5vh;
   padding-top: 20px;
 }
 
@@ -24,14 +24,6 @@
   color: white;
   background-color: #913333;
   width: fit-content;
-}
-
-hr{
-  width: 100%;
-  border-radius: 10px;
-  justify-content: center;
-  margin: auto;
-  border: 1px solid #913333;
 }
 
 .form-control{
@@ -189,8 +181,6 @@ border: 2px solid transparent;
       background-color: rgba(207, 165, 158, 0.643);
       border-color: rgb(140, 59, 39);
   }
-  
-/*  */
 
   .radio-toolbar2 input[name="radiof"] {
     opacity: 0;

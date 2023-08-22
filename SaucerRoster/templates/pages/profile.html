@@ -1,0 +1,137 @@
+{% extends "pages/layout.html" %}
+{% load static %}
+
+{% block body %}
+{% if user.is_superuser %}
+<section>
+    <header>
+        <h4 class="user"> Hey {{user.username}}!</h4>
+        <h6>Admin Credentials</h6>
+    </header>
+    <hr>
+    {% if status == 1 %}
+    <div class="score">
+        <h3> You Havent Unlocked any keys yet  </h3>
+        <i class="fa-regular fa-face-frown"></i>
+        <p>The more keys you unlock, the more accurate and catured hot sauces you'll be given</p>
+    </div>
+    {% elif status == 2 %}
+        <div class="score">
+            <div>
+                <h3> You've Unlocked 1 key </h3>
+                <i class="fa-solid fa-key"></i>
+            </div>
+            <p>You still have 3 more to unlock!</p>
+            <h5>rate sauces to unlock more keys</h5>
+        </div>
+    {% elif status == 3 %}
+    <div class="score">
+        <div>
+            <h3> You've Unlocked 2 keys </h3>
+            <div>
+                <i class="fa-solid fa-key"></i>
+                <i class="fa-solid fa-key"></i>
+            </div>
+        </div>
+        <p>You still have 2 more to unlock!</p>
+        <h5>rate sauces to unlock more keys</h5>
+    </div>
+    {% elif status == 4 %}
+    <div class="score">
+        <div>
+            <h3> You've Unlocked 3 keys </h3>
+            <div>
+                <i class="fa-solid fa-key"></i>
+                <i class="fa-solid fa-key"></i>
+                <i class="fa-solid fa-key"></i>
+            </div>
+        </div>
+        <p>You still have 1 more to unlock!</p>
+        <h5>rate sauces to unlock more keys</h5>
+    </div>
+    {% elif status == 5 %}
+    <div class="score">
+        <div>
+            <h3> You've Unlocked Max keys </h3>
+            <div>
+                <i class="fa-solid fa-key"></i>
+                <i class="fa-solid fa-key"></i>
+                <i class="fa-solid fa-key"></i>
+                <i class="fa-solid fa-key"></i>
+            </div>
+        </div>
+        <p>This is as optimal as it gets! </p>
+    </div>
+    {% endif %}
+    <a class="logout" href="{% url 'logout' %}">Log Out</a>
+</section>
+{% else %}
+<section>
+    <header>
+        <h4 class="user"> Hey {{user.username}}!</h4>
+    </header>
+    <hr>
+    {% if status == 1 %}
+    <div class="score">
+        <h3> You Havent Unlocked any keys yet  </h3>
+        <i class="fa-regular fa-face-frown"></i>
+        <p>The more keys you unlock, the more accurate and catured hot sauces you'll be given</p>
+    </div>
+    {% elif status == 2 %}
+        <div class="score">
+            <div>
+                <h3> You've Unlocked 1 key </h3>
+                <i class="fa-solid fa-key"></i>
+            </div>
+            <p>You still have 3 more to unlock!</p>
+            <h5>rate sauces to unlock more keys</h5>
+        </div>
+    {% elif status == 3 %}
+    <div class="score">
+        <div>
+            <h3> You've Unlocked 2 keys </h3>
+            <div>
+                <i class="fa-solid fa-key"></i>
+                <i class="fa-solid fa-key"></i>
+            </div>
+        </div>
+        <p>You still have 2 more to unlock!</p>
+        <h5>rate sauces to unlock more keys</h5>
+    </div>
+    {% elif status == 4 %}
+    <div class="score">
+        <div>
+            <h3> You've Unlocked 3 keys </h3>
+            <div>
+                <i class="fa-solid fa-key"></i>
+                <i class="fa-solid fa-key"></i>
+                <i class="fa-solid fa-key"></i>
+            </div>
+        </div>
+        <p>You still have 1 more to unlock!</p>
+        <h5>rate sauces to unlock more keys</h5>
+    </div>
+    {% elif status == 5 %}
+    <div class="score">
+        <div>
+            <h3> You've Unlocked Max keys </h3>
+            <div>
+                <i class="fa-solid fa-key"></i>
+                <i class="fa-solid fa-key"></i>
+                <i class="fa-solid fa-key"></i>
+                <i class="fa-solid fa-key"></i>
+            </div>
+        </div>
+        <p>This is as optimal as it gets! </p>
+    </div>
+    {% endif %}
+
+    <a class="logout" href="{% url 'logout' %}">Log Out</a>
+</section>
+{% endif %}
+{% endblock %}
+
+
+{% block script %}
+<link href="{% static 'pages/profile.css' %}" rel="stylesheet">
+{% endblock %}

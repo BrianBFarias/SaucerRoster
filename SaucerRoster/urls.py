@@ -11,6 +11,7 @@ urlpatterns = [
     path("add", views.add, name="add"),
     path("explore", views.explore, name="explore"),
     path("Sauce/<int:post_id>", views.sauce, name="Sauce"),
+    path("profile", views.profile, name="profile"),
 
     # API
     path("posts", views.Allposts, name="posts"),

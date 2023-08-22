@@ -6,6 +6,9 @@ footer{
     padding: 15px;
     height: fit-content;
 }
+a{
+    text-decoration: none;
+}
 
 footer p{
     color: rgb(48, 48, 48);
@@ -67,7 +70,7 @@ form .searchInput{
     padding: 10px;
     grid-column-gap: 20px;
     grid-template-rows:1fr;
-    grid-template-columns: auto auto auto auto 1fr;
+    grid-template-columns: auto auto auto  1fr;
     grid-template-areas: "a b c d e f g";
     justify-content:left;
 }
@@ -162,11 +165,7 @@ form .searchInput{
     color: rgb(219, 219, 219);
 }
 
-
-.login-status .logout a{
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(219, 219, 219);
+.fa-user{
+    color: whitesmoke;
+    font-size: 18px;
 }

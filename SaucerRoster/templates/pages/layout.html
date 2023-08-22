@@ -26,11 +26,6 @@
             <li class="nav-item" id="light-nav">
                 <a class="nav-link" href="{% url 'explore' %}" title="Explore">Explore</a>
             </li>
-            {% if user.username == 'admin' %}
-            <li class="add-item" id="light-add-nav">
-                <a id="add" class="nav-link" href="{% url 'add' %}"><i class="fas fa-plus"></i></a>
-            </li>
-            {% endif %}
             <li class="nav-item">
                 <form class="search" action = "{% url 'search' %}" method = "POST">
                     {% csrf_token %}
@@ -40,13 +35,17 @@
                     </div>
                 </form>
             </li>
+            {% if user.username == 'admin' %}
+            <li class="add-item" id="light-add-nav">
+                <a id="add" class="nav-link" href="{% url 'add' %}"><i class="fas fa-plus"></i></a>
+            </li>
+            {% endif %}
             {% if user.is_authenticated %}
-            <div class="login-status">
-                <li class="logout">
-                    <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
-                </li>
-            </div>
-
+            <li class="profile">
+                <a href="{% url 'profile' %}">
+                    <i class="fas fa-user"></i>
+                </a>
+            </li>
             {% else %}
                 <div class="login-status">
                     <li class="nav-item" id="dark-nav">

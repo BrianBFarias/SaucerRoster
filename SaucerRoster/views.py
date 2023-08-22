@@ -276,3 +276,26 @@ def ratingA(request, post_id):
     flavor_rank = this_flavor/post.rating.count()
 
     return JsonResponse({'spice_rank':spice_rank, 'flavor_rank': flavor_rank}, safe=False)
+
+@login_required
+def profile(request):
+    status=1
+    posts=0
+    points=0
+    for post in Post.objects.all():
+        if post.rating.filter(poster=request.user):
+            posts+=1
+            points+=1
+
+    if posts>=10 and posts<50:
+        status =2
+    elif posts>=50 and posts<100:
+        status =3
+    elif posts>=50 and posts<100:
+        status =4
+    elif posts>=100:
+        status =5
+
+    return render(request, "pages/profile.html", {
+        'status':status,
+    })

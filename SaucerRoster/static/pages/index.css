@@ -20,7 +20,6 @@
 #top_5{
     display: grid;
     padding-inline: 50px;
-    margin: 30px;
     width: fit-content;
     justify-content:first baseline;
     gap: 70px;
@@ -138,8 +137,11 @@ span .fa-solid {
 }
 
 h1{
+    align-items: flex-end;
+    display: flex;
     text-align: center;
     padding-top: 30px;
+    height: 100%;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
 }
@@ -153,4 +155,25 @@ h1{
     justify-content: center;
     margin: auto;
     height: 80vh;
+}
+
+.elmo{
+    position:static;
+    object-fit: fit;
+    height: 300px;
+    width: 250px;
+    rotate: 90deg;
+    margin-left: ;
+}
+
+#data header{
+    gap: 350px;
+    display: grid;
+    grid-template-columns: auto ;
+    grid-template-rows: auto;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: fit-content;
+    align-items: center;
 }

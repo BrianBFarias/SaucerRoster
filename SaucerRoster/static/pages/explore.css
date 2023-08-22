@@ -14,6 +14,7 @@
 .post-section .explore-page{
     min-width: 100%;
     min-width: 85vw;
+    min-height: 88vh;
 }
 
 .selection-bar input{
@@ -204,7 +205,7 @@ fa-sliders{
 .selection-bar .filter-submit{
     width:100px;
 }
-.selection-bar .filter-btn:hover, .selection-bar{
+.selection-bar, .selection-bar{
     background-color: rgb(255, 255, 255);
 }
 

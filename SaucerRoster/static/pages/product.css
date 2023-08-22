@@ -21,7 +21,7 @@
 }
 
 .body{
-    min-height: 90vh;
+    height: 100%;
 }
 
 #post-data .info{
@@ -280,6 +280,7 @@
     background-color: whitesmoke;
     text-align: center;
     justify-content: center;
+    min-height: 100%;
 }
 
 .fy h4{

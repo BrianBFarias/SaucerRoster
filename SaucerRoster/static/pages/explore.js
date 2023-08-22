@@ -5,8 +5,8 @@ if(!localStorage.getItem('filterS') || !localStorage.getItem('filterF')){
   localStorage.setItem('filterS',0)
   localStorage.setItem('filterF',0)
 }
-// Load posts 10 at a time
-const quantity = 13;
+// Load posts 30 at a time, + 1 buffer
+const quantity = 31;
 
 document.addEventListener('DOMContentLoaded', reset_page);
 document.addEventListener('DOMContentLoaded', load);
@@ -49,7 +49,7 @@ function load() {
           document.querySelector('.post-section').style.display = 'block';
           document.querySelector('.invalid').style.display = 'none';
 
-          one_page= data.slice(0,12);
+          one_page= data.slice(0,(quantity-1));
 
           for (const hotSauce of one_page) {
             spice_rate=0,flavor_rate=0;
@@ -109,14 +109,14 @@ function load() {
             hotSauceList.appendChild(aTag);
           }
 
-        if(data.length > 12 && start==0){
+        if(data.length > (quantity-1) && start==0){
             document.querySelector('.next-btn').style.display = 'block';
         }
-        if(data.length >= 12 && start > 0){
+        if(data.length >= (quantity-1) && start > 0){
             document.querySelector('.previous-btn').style.display = 'block';
             document.querySelector('.next-btn').style.display = 'block';
         }
-        if(data.length <= 12 && start > 0){
+        if(data.length <= (quantity-1) && start > 0){
             document.querySelector('.previous-btn').style.display = 'block';
         }
         }
@@ -125,14 +125,14 @@ function load() {
 
 function next_post(){
   start = localStorage.getItem('starting');
-  localStorage.setItem('starting',start*1+13)
+  localStorage.setItem('starting',start*1+quantity)
   load();
 }
 
 
 function back_post(){
   start = localStorage.getItem('starting');
-  localStorage.setItem('starting',start*1-13)
+  localStorage.setItem('starting',start*1-quantity)
   load();
 }
 
