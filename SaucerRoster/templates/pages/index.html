@@ -19,7 +19,7 @@
             </header>
             <hr class="seperator">
             <div class="box">
-                <div id="top_5">
+                <div id="top_5s">
                     {% for data in spice %}
                     <a id="post" href="{% url 'Sauce' data.post.id %}">
                         <div>
@@ -39,9 +39,8 @@
                         </div>
                     </a>
                     {% endfor %}
+                    <img class="elmo1" src="{% static 'images/elmo-fire.gif' %}" alt="Logo.png">
                 </div>
-                <img class="elmo" src="{% static 'images/elmo-fire.gif' %}" alt="Logo.png">
-
             </div>
             
             
