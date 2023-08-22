@@ -89,24 +89,24 @@ span .fa-solid {
         height: 0px;
         background-color: transparent;
     }
-    75%{
+    62%{
         height: 0px;
         background-color: transparent;
     }
-    88%{
+    78%{
         background-color: black;
         height: 98px;
         top: 0px;
     }
-    93%{
+    88%{
         height: 87px;
         top: 0px;
     }
-    95%{
+    92%{
         height: 93px;
         top: 0px;
     }
-    97%{
+    96%{
         height: 89px;
         top: 0px;
     }
@@ -119,7 +119,7 @@ span .fa-solid {
 
 #message{
     animation-name: display;
-    animation-duration: 2.5s;
+    animation-duration: 2s;
     animation-fill-mode:forwards;
     animation-iteration-count: 1;
     position: relative;

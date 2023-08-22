@@ -44,6 +44,7 @@
     grid-template-columns: auto auto;
     grid-template-rows: auto;
     width: fit-content;
+    min-height: 87.5vh;
 }
 
 #explore-page section{
@@ -225,6 +226,7 @@ fa-sliders{
 
 .body{
     background-color: whitesmoke;
+    height: 100%;
 }
 
 #posts{
@@ -293,7 +295,6 @@ fa-sliders{
 }
 
 .next-btn, .previous-btn{
-    /* background-image: linear-gradient(to top, rgb(181, 95, 95), rgb(181, 95, 95)); */
     background-color: rgb(181, 95, 95);
     border: 2px solid transparent;
     border-radius: 5px;
@@ -304,7 +305,6 @@ fa-sliders{
 
 .next-btn:hover, .previous-btn:hover{
     transition: 300ms;
-    /* background-image: linear-gradient(to top, rgb(181, 95, 95),1%, white); */
     background-color: transparent;
     border-bottom-width: 100px;
     border-bottom:solid rgb(181, 95, 95);
@@ -356,6 +356,11 @@ fa-sliders{
     overflow: hidden;
     height: 0%;
 }
+#post p{
+    font-size: 13px;
+    text-decoration: underline;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
 
 @keyframes grow{
     0%{
@@ -387,4 +392,13 @@ fa-sliders{
     width: 100%;
     margin: auto;
     object-fit:cover;
+}
+
+.text_desc{
+border-top: 1px solid rgba(0, 0, 0, 0.395);
+padding-top: 5px;
+}
+
+.text_desc h5{
+    font-family:FreeMono, monospace;
 }

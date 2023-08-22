@@ -54,6 +54,8 @@ function load() {
           for (const hotSauce of one_page) {
             spice_rate=0,flavor_rate=0;
 
+            console.log(hotSauce.rating)
+
             const response = await fetch(`/rating/${hotSauce.id}`);
             const data = await response.json();
             spice_rate = data.spice_rank;
@@ -95,7 +97,7 @@ function load() {
               </div>
               <div class='text_desc'>
                 <div>
-                  <span class="fas">${hotSauce.product}</span>
+                  <h5 class="title">${hotSauce.product}</h5>
                 </div>
                 ${hotSauce.brand}
               </div>
@@ -104,6 +106,9 @@ function load() {
               </div>
               <div class="flavor">
               ${flavor.innerHTML}
+            </div>
+            <div>
+              <p>${hotSauce.num_reviews} Ratings </p>
             </div>
             `;
             hotSauceList.appendChild(aTag);
