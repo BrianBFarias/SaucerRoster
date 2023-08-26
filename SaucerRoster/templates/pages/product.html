@@ -59,6 +59,8 @@
         <div>
             <button onclick="submit()">submit</button>
         </div>
+        <div>
+        </div>
     </section>
 
     <section id="post_feedback">
@@ -68,11 +70,45 @@
     <section id="just-submited">
         <p>Thanks for your feedback!</p>
     </section>
+    <section id="commenting">
+        <div id="comments">
+            <section class="comments">
+                <p class="info">Comment as <strong>{{user.username}}</strong></p>
+                <form action="{% url 'commentA' product.id %}" class="new_com" method="post">
+                    {% csrf_token %}
+                    <textarea name="comment" id="new_comment" cols="30" rows="10" placeholder="What do you think of this Sauce?" oninput="comment_postable()"></textarea>
+                    <div class="post_wrapper">
+                        <input type="submit" value="Comment" class="not_postable">
+                    </div>
+                </form>
+            </section>
+            <section id="posted_comments">
+    
+            </section>
+            <section id="no_comment">
+                Be the First to comment
+            </section>
+            <section class="vm">
+                <a onclick="view_more()"> View More </a>
+            </section>
+        </div>
+    </section>
+
 
     {% else %}
     <section id="feedback">
-        <p>Login to rate items</p>
+        <section id="login-text">
+            <p>Login to rate items</p>
+        </section>
+
+        <section id="comments">
+            <section class="posted_comments">
+                
+            </section>
+        </section>
     </section>
+    
+
     {% endif %}
 
     <section class="fy">

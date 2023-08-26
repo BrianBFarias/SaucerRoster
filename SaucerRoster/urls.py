@@ -12,10 +12,13 @@ urlpatterns = [
     path("explore", views.explore, name="explore"),
     path("Sauce/<int:post_id>", views.sauce, name="Sauce"),
     path("profile", views.profile, name="profile"),
+    path("commentA/<int:post_id>", views.commentA, name="commentA"),
 
     # API
     path("posts", views.Allposts, name="posts"),
     path("post/<int:post_id>", views.post, name="post"),
     path("rating/<int:post_id>", views.ratingA, name="rating"),
     path("review/<int:post_id>", views.review, name="review"),
+    path('comments/<int:post_id>', views.get_comments, name='get_comments'),
+    path("like/<int:com_id>", views.like, name="like"),
 ]

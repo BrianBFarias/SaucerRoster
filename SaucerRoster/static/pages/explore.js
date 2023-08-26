@@ -53,9 +53,6 @@ function load() {
 
           for (const hotSauce of one_page) {
             spice_rate=0,flavor_rate=0;
-
-            console.log(hotSauce.rating)
-
             const response = await fetch(`/rating/${hotSauce.id}`);
             const data = await response.json();
             spice_rate = data.spice_rank;

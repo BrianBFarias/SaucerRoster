@@ -5,6 +5,10 @@ section{
     gap: 0px;
 }
 
+.body{
+    background-color: whitesmoke;
+}
+
 a, a:hover{
     text-decoration: none;
     color: white;

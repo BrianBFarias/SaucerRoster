@@ -6,7 +6,7 @@ from .models import User
 from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from django.db import IntegrityError
-from .models import User,Post,rating
+from .models import User,Post,rating,comment
 from django.core.serializers import serialize
 from django.db.models import Avg
 
@@ -216,10 +216,6 @@ def Allposts(request):
     post_num = 0
 
     while post_num < len(postings):
-        print(postings[post_num]['post'])
-        print(postings[post_num]['flavor'], ' < 3')
-        print(postings[post_num]['spice'] < filter_spice or postings[post_num]['flavor'] < filter_flavor)
-
         if postings[post_num]['spice'] < filter_spice or postings[post_num]['flavor'] < filter_flavor:
             postings.remove(postings[post_num])
             continue
@@ -237,7 +233,7 @@ def sauce(request, post_id):
 
     return render(request, 'pages/product.html', {
         'product':post,
-        'suggestion': suggestion(post_id)
+        'suggestion': suggestion(post_id),
     })
 
 @login_required
@@ -299,3 +295,42 @@ def profile(request):
     return render(request, "pages/profile.html", {
         'status':status,
     })
+
+@login_required
+@csrf_exempt
+def commentA(request, post_id):
+    if request.method == "POST":
+        post = Post.objects.get(id = post_id)
+        new_comment = comment.objects.create(poster = request.user, comment = request.POST['comment'])
+        print(new_comment)
+        post.comments.add(new_comment)
+        post.save()
+        return HttpResponseRedirect(reverse("Sauce", args=(post_id,)))
+    else:
+        return sauce(request, post_id)
+    
+#get comments API
+def get_comments(request, post_id):
+    
+    end = int(request.GET.get("Cend") or 6)
+
+    all_comments = Post.objects.get(id=post_id).comments.all().order_by("-timestamp")
+
+    return JsonResponse([comment.serialize(request.user) for comment in all_comments[0:end]], safe=False)
+
+@csrf_exempt
+def like(request, com_id):
+    single_com = comment.objects.get(id=com_id)
+
+    for like in single_com.likes.all():
+        if(like == request.user):
+            single_com.likes.remove(request.user)
+            single_com.save()
+
+            return JsonResponse(False, safe=False)
+        
+    single_com.likes.add(request.user)
+    single_com.save()
+
+    return JsonResponse(True, safe=False)
+

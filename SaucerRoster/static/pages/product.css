@@ -1,6 +1,7 @@
 #info-post{
     padding-top: 40px;
     display: grid;
+    min-height: 87.5vh;
     background-color: whitesmoke;
 }
 
@@ -129,11 +130,11 @@
 #feedback{
     display: grid;
     grid-template-columns: auto;
-    padding-top: 20px;
+    padding-block: 20px;
     justify-content: center;
     grid-template-rows: auto auto auto;
     background-color: white;
-    height: 200px;
+    min-height: 200px;
 }
 #feedback div{
     justify-content: center;
@@ -162,7 +163,7 @@
     border-radius: 8px;
 }
 
-#feedback p{
+#post_feedback, #just-submited, #login-text{
     margin-top: 20px;
     font-size: 30px;
     font-family:monospace;
@@ -362,3 +363,216 @@ span .fa-solid {
     text-decoration: none;
     color: black;
 }
+
+#comments{
+    width: fit-content;
+    margin: auto;
+}
+#commenting{
+    width: 100%;
+    background-color: white;
+    padding-bottom: 45px;
+}
+
+.comments{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    margin-inline:auto;
+    height: fit-content;
+    width:fit-content;
+    padding-bottom: 50px;
+    border-radius: 10px;
+}
+.comments form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.comments textarea{
+    padding: 7px;
+    border-radius: 5px;
+    font-size: 19px;
+    width: 60vw;
+    max-width: 700px;
+    min-width: 200px;
+    max-height: 100px;
+    overflow: auto;
+}
+
+.comments .postable{
+    font-size: 14px;
+    width: fit-content;
+    justify-content: flex-start;
+    margin-left: 5%;
+    padding-inline: 10px;
+    background-color: rgb(173, 43, 43);
+    color: white;
+    border: none;
+    border-radius: 7px;
+}
+.comments .not_postable{
+    font-size: 14px;
+    width: fit-content;
+    justify-content: flex-start;
+    margin-left: 5%;
+    padding-inline: 10px;
+    background-color: rgb(128, 49, 49);
+    color: white;
+    border: none;
+    border-radius: 7px;
+}
+
+.post_wrapper{
+    cursor:not-allowed;
+}
+
+.not_postable{
+    pointer-events:none;
+}
+
+.comments .not_postable:hover{
+    cursor:not-allowed;
+}
+
+.comments .info{
+    margin-bottom: 5px;
+    margin-left: 10px;
+    color: black;
+    font-size: 13px;
+    font-family:sans-serif;
+}
+.comments .info strong{
+    font-weight: normal;
+    text-decoration: none;
+    color: blue;
+}
+
+#no_comment{
+    text-align: center;
+    margin: auto;
+    color: rgba(0, 0, 0, 0.563);
+    font-weight: 400;
+    font-size: 20px;
+}
+
+#posted_comments{
+    position: relative;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+}
+
+.com_box{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    width: fit-content;
+}
+
+.com_box div{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    text-align: left;
+    justify-content: left;
+}
+.vm{
+    width: fit-content;
+    justify-content: center;
+    margin: auto;
+    margin-top: 15px;
+    color: rgb(0, 60, 255);
+}
+.vm:hover{
+    text-decoration: underline;
+    cursor:pointer;
+}
+
+.com_box span {
+    height: 100%;
+    width: 5px;
+    background-color: rgba(39, 2, 2, 0.554);
+    border-radius: 99px;
+    margin: 0 10px;
+}
+
+.com_box h4{
+    margin:auto 8px;
+    height: fit-content;
+}
+
+.com_box p{
+    display: flex;
+    height: fit-content;
+    margin: auto 0;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #ad2c2c;
+}
+
+.com_box strong{
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.615);
+    font-size: 12px;
+    margin: auto 5px;
+}
+
+.com_data{
+    gap: 5px;
+    padding-block: 5px;
+}
+
+.com_data i:hover{
+    cursor: pointer;
+}
+
+.com_data i{
+    display: flex;
+    gap:5px;
+}
+
+.com_data div p{
+    color: black;
+}
+
+@keyframes bop{
+    0%{
+        scale: 100%;
+    }
+    40%{
+        scale:130%;
+    }
+    80%{
+        scale: 80%;
+    }
+    85%{
+        scale: 110%;
+    }
+    100%{
+        scale: 100%;
+    }
+}
+
+.com_box .like_data{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    align-items: center;
+    gap: 8px;
+}
+
+.com_box i{
+    color:#ad2c2c;
+    position:relative;
+
+    animation-name: bop;
+    animation-duration: 500ms;
+    animation-delay: 100ms;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+

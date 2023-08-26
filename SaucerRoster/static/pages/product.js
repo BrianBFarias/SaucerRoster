@@ -2,6 +2,9 @@ if(!localStorage.getItem('spice-rate') && !localStorage.getItem('flavor-rate')){
     localStorage.setItem('spice-rate',0)
     localStorage.setItem('flavor-rate',0)
 }
+if(!localStorage.getItem('Cend')){
+  localStorage.setItem('Cend',7)
+}
 
 document.addEventListener('DOMContentLoaded', load);
 
@@ -25,8 +28,8 @@ function animateValue(spice, flavor, spice_val, flavor_val, duration) {
     window.requestAnimationFrame(step);
   }
   
-
 function load(){
+    localStorage.setItem('Cend',7)
     post_id =document.getElementById("info-post").className;
 
     fetch(`/rating/${post_id}`)
@@ -60,6 +63,7 @@ function load(){
         }
 
       });
+      comments()
 }
 
 function spice_rating(value){
@@ -111,4 +115,128 @@ function submit(){
       document.getElementById('just-submited').style.display='block';
       document.getElementById('feedback').style.display='none';
       document.getElementById('post_feedback').style.display='none';
+}
+
+function comment_postable(){
+  if(document.getElementById("new_comment").value == ''){
+    document.querySelector(".postable").className='not_postable';
+    document.querySelector(".postable").disabled=true;
+  }
+  else if(document.getElementById("new_comment").value != ''){
+    document.querySelector(".not_postable").className='postable';
+  }
+}
+
+function comments(){
+  fetch(`/comments/${post_id}?start=${0}&end=${localStorage.getItem('Cend')}`)
+  .then(response => response.json())
+  .then(data => {
+
+    console.log(data)
+
+    all_comments = data.slice(0,localStorage.getItem('Cend')-1);
+
+    if(data.length < localStorage.getItem('Cend')){
+      document.querySelector('.vm').style.display='none';
+    }
+
+    if(data.length != 0){
+      document.getElementById('no_comment').style.display='none';
+    }
+
+    comment_section = document.getElementById('posted_comments');
+    comment_section.innerHTML='';
+
+    for(var comment=0; comment<all_comments.length; comment++){
+      com=all_comments[comment]
+
+      var time;
+      
+      const postTime = new Date(com.timestamp);
+
+      var seconds = Math.floor((new Date() - postTime) / 1000);
+      var interval = seconds / 31536000;
+
+      if (interval > 1) {
+        time = `${Math.floor(interval)} year ago`;
+      }
+      else if ((seconds / 2592000) > 1) {
+        interval = seconds / 2592000;
+        time = `${Math.floor(interval)} month ago`;
+      }
+      else if ((seconds / 86400) > 1) {
+        interval = seconds / 86400;
+        time = `${Math.floor(interval)} day ago`;
+      }
+      else if ((seconds / 3600) > 1) {
+        interval = seconds / 3600;
+        time = `${Math.floor(interval)} hr ago`;
+      }
+      else if ((seconds / 60) > 1) {
+        interval = seconds / 60;
+        time = `${Math.floor(interval)} min ago`;
+      }
+      else{
+        time =  'Just Now';
+      }
+
+      comment_box = document.createElement('div');
+      comment_box.className='com_box';
+
+      var className='fa-regular fa-heart';
+      if(com.liked){
+        className='fa-solid fa-heart';
+      }
+      
+      comment_box.innerHTML=`
+      <div>
+        <span></span>
+      </div>
+      
+      <div class='com_data' id='${com.id}'>
+        <div>
+          <p> ${com.poster}<strong> ${time}  </strong> </p>
+        </div>
+        <div>
+          <h4> ${com.comment} </h4>
+        </div>
+          <div class='like_data'>
+            <i class="${className}" onclick='toggle_like(${com.id})' value='${com.likes}'></i>
+            <p>${com.likes}</p> 
+          </div>
+      </div>
+      `;
+
+      comment_section.appendChild(comment_box);
+      comment_box.querySelector('i').style.animationPlayState='paused';
+    }
+    });
+}
+
+function view_more(){
+  localStorage.setItem('Cend',localStorage.getItem('Cend')*1+6);
+
+  comments()
+}
+
+function toggle_like(com_id){
+  comment = document.getElementById(com_id);
+  console.log(com_id)
+  fetch(`/like/${com_id}`, {
+    method: 'POST'
+  })
+  .then(response => response.json())
+  .then(result => {
+    console.log(comment.querySelector('i'))
+    console.log(result)
+    if(result){
+      comment.querySelector('i').style.animationPlayState='running';
+    }
+    else{
+      comment.querySelector('i').style.animationPlayState='running';
+    }
+    setTimeout(function(){
+      comments()
+    }, 500);
+  });
 }
