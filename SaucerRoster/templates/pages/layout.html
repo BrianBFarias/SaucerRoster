@@ -35,7 +35,7 @@
                     </div>
                 </form>
             </li>
-            {% if user.username == 'admin' %}
+            {% if user.is_superuser %}
             <li class="add-item" id="light-add-nav">
                 <a id="add" class="nav-link" href="{% url 'add' %}"><i class="fas fa-plus"></i></a>
             </li>
