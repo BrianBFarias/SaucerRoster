@@ -18,7 +18,7 @@
 }
 
 .backscreen{
-    background-color: rgb(232, 232, 232);
+    background-color: rgb(237, 237, 237);
 }
 
 #top_5, #top_5s{
@@ -39,11 +39,13 @@
 #top_5s{
     padding-right: 0px;
     grid-template-columns: auto auto auto auto auto 0;
+    margin-bottom: 80px;
 }
 
 
 
 #post{
+    box-shadow: 5px 5px 5px ;
     z-index: 2;
     text-decoration: none;
     text-align: center;
@@ -132,7 +134,7 @@ span .fa-solid {
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
     width: 100%;
-    color: whitesmoke;
+    color: rgb(237, 237, 237);
     background-color: rgb(0, 0, 0);
     padding-block: 10px;
     padding-top: 20px;
