@@ -24,8 +24,8 @@
 
 #top_5, #top_5s{
     max-width: 90vw;
-    min-width: 400px;
     display: grid;
+    width: 20in;
     padding-inline: 50px;
     width: fit-content;
     justify-content:first baseline;
